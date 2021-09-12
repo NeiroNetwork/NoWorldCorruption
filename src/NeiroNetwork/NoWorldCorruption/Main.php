@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NeiroNetwork\PluginTemplate;
+namespace NeiroNetwork\NoWorldCorruption;
 
 use pocketmine\plugin\PluginBase;
 
