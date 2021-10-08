@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NeiroNetwork\NoWorldCorruption;
 
+use pocketmine\block\Flowable;
 use pocketmine\event\block\BlockBurnEvent;
 use pocketmine\event\block\BlockFormEvent;
 use pocketmine\event\block\BlockGrowEvent;
@@ -14,8 +15,6 @@ use pocketmine\event\block\LeavesDecayEvent;
 use pocketmine\event\block\StructureGrowEvent;
 use pocketmine\event\entity\EntityTrampleFarmlandEvent;
 use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerInteractEvent;
-use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\plugin\PluginBase;
 
 class Main extends PluginBase implements Listener{
@@ -45,7 +44,10 @@ class Main extends PluginBase implements Listener{
 	}
 
 	public function onBlockUpdate(BlockUpdateEvent $event){
-		$event->cancel();
+		$block = $event->getBlock();
+		if(!$block instanceof Flowable && !empty($block->getCollisionBoxes())){
+			$event->cancel();
+		}
 	}
 
 	public function onLeavesDecay(LeavesDecayEvent $event){
