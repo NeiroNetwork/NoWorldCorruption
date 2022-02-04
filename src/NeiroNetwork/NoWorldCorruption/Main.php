@@ -8,6 +8,7 @@ use pocketmine\block\Flowable;
 use pocketmine\event\block\BlockBurnEvent;
 use pocketmine\event\block\BlockFormEvent;
 use pocketmine\event\block\BlockGrowEvent;
+use pocketmine\event\block\BlockMeltEvent;
 use pocketmine\event\block\BlockSpreadEvent;
 use pocketmine\event\block\BlockTeleportEvent;
 use pocketmine\event\block\BlockUpdateEvent;
@@ -59,6 +60,10 @@ class Main extends PluginBase implements Listener{
 	}
 
 	public function onEntityTrampleFarmland(EntityTrampleFarmlandEvent $event){
+		$event->cancel();
+	}
+
+	public function onBlockMelt(BlockMeltEvent $event){
 		$event->cancel();
 	}
 }
