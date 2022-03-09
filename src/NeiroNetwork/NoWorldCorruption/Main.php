@@ -56,7 +56,7 @@ class Main extends PluginBase implements Listener{
 	}
 
 	public function onStructureGrow(StructureGrowEvent $event){
-		$event->cancel();
+		if($event->getPlayer() === null) $event->cancel();
 	}
 
 	public function onEntityTrampleFarmland(EntityTrampleFarmlandEvent $event){
