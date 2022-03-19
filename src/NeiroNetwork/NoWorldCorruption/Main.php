@@ -24,26 +24,44 @@ class Main extends PluginBase implements Listener{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
 
+	/**
+	 * @priority LOWEST
+	 */
 	public function onBlockBurn(BlockBurnEvent $event){
 		$event->cancel();
 	}
 
+	/**
+	 * @priority LOWEST
+	 */
 	public function onBlockForm(BlockFormEvent $event){
 		$event->cancel();
 	}
 
+	/**
+	 * @priority LOWEST
+	 */
 	public function onBlockGrow(BlockGrowEvent $event){
 		$event->cancel();
 	}
 
+	/**
+	 * @priority LOWEST
+	 */
 	public function onBlockSpread(BlockSpreadEvent $event){
 		$event->cancel();
 	}
 
+	/**
+	 * @priority LOWEST
+	 */
 	public function onBlockTeleport(BlockTeleportEvent $event){
 		$event->cancel();
 	}
 
+	/**
+	 * @priority LOWEST
+	 */
 	public function onBlockUpdate(BlockUpdateEvent $event){
 		$block = $event->getBlock();
 		if(!$block instanceof Flowable && !empty($block->getCollisionBoxes())){
@@ -51,18 +69,30 @@ class Main extends PluginBase implements Listener{
 		}
 	}
 
+	/**
+	 * @priority LOWEST
+	 */
 	public function onLeavesDecay(LeavesDecayEvent $event){
 		$event->cancel();
 	}
 
+	/**
+	 * @priority LOWEST
+	 */
 	public function onStructureGrow(StructureGrowEvent $event){
 		if($event->getPlayer() === null) $event->cancel();
 	}
 
+	/**
+	 * @priority LOWEST
+	 */
 	public function onEntityTrampleFarmland(EntityTrampleFarmlandEvent $event){
 		$event->cancel();
 	}
 
+	/**
+	 * @priority LOWEST
+	 */
 	public function onBlockMelt(BlockMeltEvent $event){
 		$event->cancel();
 	}
