@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NeiroNetwork\NoWorldCorruption;
 
 use pocketmine\block\Flowable;
+use pocketmine\entity\object\Painting;
 use pocketmine\event\block\BlockBurnEvent;
 use pocketmine\event\block\BlockFormEvent;
 use pocketmine\event\block\BlockGrowEvent;
@@ -14,8 +15,11 @@ use pocketmine\event\block\BlockTeleportEvent;
 use pocketmine\event\block\BlockUpdateEvent;
 use pocketmine\event\block\LeavesDecayEvent;
 use pocketmine\event\block\StructureGrowEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityTrampleFarmlandEvent;
 use pocketmine\event\Listener;
+use pocketmine\player\GameMode;
+use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 
 class Main extends PluginBase implements Listener{
@@ -81,6 +85,19 @@ class Main extends PluginBase implements Listener{
 	 */
 	public function onStructureGrow(StructureGrowEvent $event){
 		if($event->getPlayer() === null) $event->cancel();
+	}
+	
+	/**
+	 * @priority LOWEST
+	 */
+	public function onEntityDamageByEntity(EntityDamageByEntityEvent $event){
+		$entity = $event->getEntity();
+		$damager = $event->getDamager();
+		if($entity instanceof Painting && $damager instanceof Player){
+			if($damager->getGamemode() !== GameMode::CREATIVE()){
+				$event->cancel();
+			}
+		}
 	}
 
 	/**
