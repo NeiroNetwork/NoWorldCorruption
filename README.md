@@ -29,7 +29,8 @@
 ### 耕された土を踏んだ時に土に戻る (`EntityTrampleFarmlandEvent`)
 ### 葉っぱの自動破壊 (`LeavesDecayEvent`)
 ### 絵画の破壊 (`PaintingBreakEvent`)
-※クリエイティブ以外のプレイヤーによる絵画の破壊のみ
+クリエイティブ以外のプレイヤーによる絵画の破壊のみ扱います  
+(PocketMine-MPには存在しないイベントです)
 ### 構造物の成長 (`StructureGrowEvent`)
 プレイヤーが関与した場合を除きます
 - 竹
