@@ -52,6 +52,13 @@ class Main extends PluginBase implements Listener{
 	/**
 	 * @priority LOWEST
 	 */
+	public function onBlockMelt(BlockMeltEvent $event){
+		$event->cancel();
+	}
+
+	/**
+	 * @priority LOWEST
+	 */
 	public function onBlockSpread(BlockSpreadEvent $event){
 		$event->cancel();
 	}
@@ -76,6 +83,13 @@ class Main extends PluginBase implements Listener{
 	/**
 	 * @priority LOWEST
 	 */
+	public function onEntityTrampleFarmland(EntityTrampleFarmlandEvent $event){
+		$event->cancel();
+	}
+
+	/**
+	 * @priority LOWEST
+	 */
 	public function onLeavesDecay(LeavesDecayEvent $event){
 		$event->cancel();
 	}
@@ -83,14 +97,7 @@ class Main extends PluginBase implements Listener{
 	/**
 	 * @priority LOWEST
 	 */
-	public function onStructureGrow(StructureGrowEvent $event){
-		if($event->getPlayer() === null) $event->cancel();
-	}
-	
-	/**
-	 * @priority LOWEST
-	 */
-	public function onEntityDamageByEntity(EntityDamageByEntityEvent $event){
+	public function onPaintingBreak(EntityDamageByEntityEvent $event){
 		$entity = $event->getEntity();
 		$damager = $event->getDamager();
 		if($entity instanceof Painting && $damager instanceof Player){
@@ -103,14 +110,7 @@ class Main extends PluginBase implements Listener{
 	/**
 	 * @priority LOWEST
 	 */
-	public function onEntityTrampleFarmland(EntityTrampleFarmlandEvent $event){
-		$event->cancel();
-	}
-
-	/**
-	 * @priority LOWEST
-	 */
-	public function onBlockMelt(BlockMeltEvent $event){
-		$event->cancel();
+	public function onStructureGrow(StructureGrowEvent $event){
+		if($event->getPlayer() === null) $event->cancel();
 	}
 }
