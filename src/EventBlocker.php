@@ -15,10 +15,8 @@ use pocketmine\event\block\BlockTeleportEvent;
 use pocketmine\event\block\BlockUpdateEvent;
 use pocketmine\event\block\LeavesDecayEvent;
 use pocketmine\event\block\StructureGrowEvent;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityTrampleFarmlandEvent;
 use pocketmine\event\Listener;
-use pocketmine\player\Player;
 use pocketmine\utils\Config;
 use pocketmine\world\World;
 
@@ -127,7 +125,6 @@ class EventBlocker implements Listener{
 	 * @priority LOWEST
 	 */
 	public function onPaintingBreak(PaintingBreakEvent $event){
-		echo "onPaintingBreak()\n";
 		if($this->needsCancel("PaintingBreakEvent", $event->getEntity()->getWorld())){
 			if(!$event->getPlayer()->isCreative(true)){
 				$event->cancel();
