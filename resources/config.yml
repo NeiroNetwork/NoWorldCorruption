@@ -1,0 +1,43 @@
+BlockBurnEvent:
+  mode: allowlist
+  worlds: []
+
+BlockFormEvent:
+  mode: allowlist
+  worlds: []
+
+BlockGrowEvent:
+  mode: allowlist
+  worlds: []
+
+BlockMeltEvent:
+  mode: allowlist
+  worlds: []
+
+BlockSpreadEvent:
+  mode: allowlist
+  worlds: []
+
+BlockTeleportEvent:
+  mode: allowlist
+  worlds: []
+
+BlockUpdateEvent:
+  mode: allowlist
+  worlds: []
+
+EntityTrampleFarmlandEvent:
+  mode: allowlist
+  worlds: []
+
+LeavesDecayEvent:
+  mode: allowlist
+  worlds: []
+
+PaintingBreakEvent:
+  mode: allowlist
+  worlds: []
+
+StructureGrowEvent:
+  mode: allowlist
+  worlds: []
